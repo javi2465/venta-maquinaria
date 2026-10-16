@@ -1,0 +1,157 @@
+body {
+    font-family: 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    }
+header {
+    display: flex;
+    gap:50px;
+    padding: 10px 75px;
+    text-align: left;
+    background: lightblue;
+    border: 2px solid blue;
+       }
+.uno {flex:2;border: 2px solid red;} .dos {flex:1;background: yellow;border: 2px solid red;padding: 5px;} .tres {flex:2;border: 2px solid red;padding: 0px;}
+main {
+    padding:10px;
+    background: lightgrey;
+    border: 2px solid black;
+    }         
+footer {
+    background: black;
+    border: 2px solid red;
+    color: wheat
+      } 
+.principal {
+    display: flex;
+    gap:10px;
+         } 
+.salida {
+    flex: 2; 
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 5px;   
+        } 
+.salidaCarrito {
+    flex: 1;
+               }       
+.tarjeta {  
+    padding: 5px; 
+    border : 2px solid black; 
+    background :red;
+    margin : 5px;
+    box-shadow: 0 3px 8px black;
+        }
+.tarjeta:hover {
+   transform:scale(1.02);
+   box-shadow:0 8px 20px black;
+         }
+img {width: 100%;max-width: 810px;height: 100%;max-height: 325px;}                          
+.tarjeta img {
+    width: 85%;
+    max-width: 180px;
+    height: 100%;
+    max-height: 150px;
+             }             
+.boton {
+    color:black;
+    background-color: green;
+    border-color: darkgreen;
+    width: 100%;
+    max-width: 120px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px green;
+    transition: 0.8s;
+        }
+.boton:hover {   
+    background-color: lightgreen;
+    color: black;
+    transform: scale(1.09);
+    box-shadow: 5px 5px 10px green;
+             } 
+a {text-decoration: none;}
+li {font-size: 1.5vw;}            
+.resultado {
+    text-align: left;
+    width: 100%;
+    max-width: 195px;
+    border: 2px solid black;
+    padding : 10px;
+    background-color: lightyellow;
+    margin: 5px;
+                 }
+.resultadoParcial {
+    text-align: left;
+    width: 100%;
+    max-width: 200px;
+    padding: 10px;
+    margin: 5px;
+                  } 
+.resultadoFinal {
+    display: block;
+    padding : 10px 30px;
+    color: black;
+    background: lightskyblue;
+    text-align: left;
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 200px;
+    min-height: 50px;       
+    margin: 20px auto; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    font-weight: bold;      
+    margin-top: 25px;
+                } 
+.resultadoFinalError {
+    display: block;
+    padding : 30px 30px;
+    color: red;
+    background: lemonchiffon;
+    border: 2px solid blue;
+    border-radius: 10px;
+    max-width: 100%;
+    max-height: 70px;       
+    margin: 20px auto; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    font-weight: bold;      
+    margin-top: 25px;
+                }            
+.resultadoFinalImprimir {
+    display: block;
+    padding : 20px 30px;
+    color: black;
+    background: lightskyblue;
+    text-align: left;
+    border: 2px solid #ff0000;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    min-height: 50px;       
+    margin: 20px auto; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    font-weight: bold;      
+    margin-top: 25px;
+                       }
+.seguir {
+    text-align : center; 
+    display : flex;
+    flex-direction : column;
+    align-items: center; 
+    gap : 20px;
+             }
+.color {color: blue;font-size: 18px;}              
+@media print {
+    header{text-align: left;border:2px solid black;padding: 10px;gap:0px;}
+    img{height:100%;min-height:200px;width: 100%; max-width: 400px;}
+    button{display: none;}    
+    main{background: none;border: 2px solid black;}
+    .salida{display: block;/*display: flex;flex-direction: column;*/}    
+    footer{visibility: hidden;}
+    .tres{display: none;}
+    .dos{border: none;}
+    .uno{border: 2px solid red;width: 100%;}
+    li {font-size: 18px;font-weight: bold;}                     
+            }                                           
