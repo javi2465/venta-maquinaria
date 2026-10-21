@@ -3,24 +3,35 @@ let salidaCarrito = document.getElementById("salidaCarrito");
 const spinner = document.getElementById("spinner");
 let carrito = [];
 let mensaje  = "";
+let enAlmacen = 0;
 
 let productos = [
-    {id: "1",nombre: "Picadora con Sierra",imagen: "imagenes/picadora1.jpg",precioMin: "700",precioMax: "900"},
-    {id: "2",nombre: "Picadora",imagen: "imagenes/picadora2.jpg",precioMIn: "700",precioMax: "900"},
-    {id: "3",nombre: "Cortadora",imagen: "imagenes/cortadora1.jpg",precioMin: "700",precioMax: "800"},
-    {id: "4",nombre: "Cortadora",imagen: "imagenes/cortadora2.jpg",precioMIn: "200",precioMax: "400"},
-    {id: "5",nombre: "Envasadora de Vacio",imagen: "imagenes/envasadora1.jpg",precioMin: "800",precioMax: "1200"},
-    {id: "6",nombre: "Envasadora de Vacio",imagen: "imagenes/envasadora2.jpg",precioMIn: "300",precioMax: "400"},
-    {id: "7",nombre: "Mueble Expositor",imagen: "imagenes/expositor.jpg",precioMin: "200",precioMax: "400"},
-    {id: "8",nombre: "Focos Led",imagen: "imagenes/foco.jpg",precioMIn: "100",precioMax: "150"},
-    {id: "9",nombre: "Horno Electrico SALVA",imagen: "imagenes/horno.jpg",precioMin: "600",precioMax: "600"},
-    {id: "10",nombre: "Fermentadora SALVA",imagen: "imagenes/fermentadora.jpg",precioMIn: "800",precioMax: "800"},
-    {id: "11",nombre: "Bancos de Acero Inoxidable ",imagen: "imagenes/bancos2.jpg",precioMIn: "100",precioMax: "150"},
-    {id: "12",nombre: "Bancos de Acero Inoxidable ",imagen: "imagenes/bancos3.jpg",precioMIn: "100",precioMax: "150"},
-    {id: "13",nombre: "Bancos de Acero Inoxidable ",imagen: "imagenes/bancos4.jpg",precioMIn: "100",precioMax: "150"},
-    {id: "14",nombre: "Bancos de Acero Inoxidable ",imagen: "imagenes/bancos1.jpg",precioMIn: "100",precioMax: "150"},
-    {id: "15",nombre: "Arcon Congelador",imagen: "imagenes/arcon1.jpg",precioMIn: "200",precioMax: "300"},
-    {id: "16",nombre: "Arcon Congelador",imagen: "imagenes/arcon2.jpg",precioMin: "200",precioMax: "300"}    
+    {id: "1",nombre: "Picadora con Sierra",imagen: "imagenes/picadora1.jpg",precioMin: "700",precioMax: "900", stock: 1},
+    {id: "2",nombre: "Picadora",imagen: "imagenes/picadora2.jpg",precioMIn: "700",precioMax: "900", stock: 1},
+    {id: "3",nombre: "Cortadora",imagen: "imagenes/cortadora1.jpg",precioMin: "700",precioMax: "800", stock: 1},
+    {id: "4",nombre: "Cortadora",imagen: "imagenes/cortadora2.jpg",precioMIn: "200",precioMax: "400", stock :1},
+    {id: "5",nombre: "Envasadora de Vacio",imagen: "imagenes/envasadora1.jpg",precioMin: "800",precioMax: "1200", stock: 1},
+    {id: "6",nombre: "Envasadora de Vacio",imagen: "imagenes/envasadora2.jpg",precioMIn: "300",precioMax: "400", stock: 1},
+    {id: "7",nombre: "Mueble Expositor",imagen: "imagenes/expositor.jpg",precioMin: "200",precioMax: "400", stock: 1},
+    {id: "8",nombre: "Focos Led",imagen: "imagenes/foco.jpg",precioMIn: "100",precioMax: "150", stock: 5},
+    {id: "9",nombre: "Horno Electrico SALVA",imagen: "imagenes/horno.jpg",precioMin: "600",precioMax: "600", stock: 1},
+    {id: "10",nombre: "Fermentadora SALVA",imagen: "imagenes/fermentadora.jpg",precioMIn: "800",precioMax: "800", stock: 1},
+    {id: "11",nombre: "Bancos de Acero Inoxidable ",imagen: "imagenes/bancos2.jpg",precioMIn: "100",precioMax: "150", stock: 2},
+    {id: "12",nombre: "Bancos de Acero Inoxidable ",imagen: "imagenes/bancos3.jpg",precioMIn: "100",precioMax: "150", stock: 1},
+    {id: "13",nombre: "Bancos de Acero Inoxidable ",imagen: "imagenes/bancos4.jpg",precioMIn: "100",precioMax: "150", stock: 1},
+    {id: "14",nombre: "Bancos de Acero Inoxidable ",imagen: "imagenes/bancos1.jpg",precioMIn: "100",precioMax: "150", stock: 1},
+    {id: "15",nombre: "Arcon Congelador1",imagen: "imagenes/arcon1.jpg",precioMIn: "200",precioMax: "300", stock: 1},
+    {id: "16",nombre: "Arcon Congelador2",imagen: "imagenes/arcon2.jpg",precioMin: "200",precioMax: "300", stock: 1},
+    {id: "17",nombre: "Jamonero",imagen: "imagenes/jamonero.jpg",precioMin: "35",precioMax: "50", stock: 1},
+    {id: "18",nombre: "Mesa de Acero Inoxidable1",imagen: "imagenes/mesaAcero1.jpg",precioMIn: "150",precioMax: "200", stock: 2},
+    {id: "19",nombre: "Mesa de Acero Inoxidable2 ",imagen: "imagenes/mesaAcero2.jpg",precioMIn: "150",precioMax: "200", stock: 1},
+    {id: "20",nombre: "Mesa de Acero Inoxidable3 ",imagen: "imagenes/mesaAcero3.jpg",precioMIn: "150",precioMax: "200", stock: 1},
+    {id: "21",nombre: "Mesa de Acero Inoxidable4 ",imagen: "imagenes/mesaAcero4.jpg",precioMIn: "150",precioMax: "200", stock: 1},
+    {id: "22",nombre: "Mesa de Corte1 ",imagen: "imagenes/mesaCortePeq.jpg",precioMIn: "100",precioMax: "150", stock: 1},
+    {id: "23",nombre: "Mesa de Corte2",imagen: "imagenes/mesaCorteMed.jpg",precioMIn: "150",precioMax: "200", stock: 2},
+    {id: "24",nombre: "Mesa de Corte3",imagen: "imagenes/mesaCorteGra.jpg",precioMin: "150",precioMax: "250", stock: 1}, 
+    {id: "25",nombre: "Carro de transporte Manual",imagen: "imagenes/Carro.jpg",precioMin: "50",precioMax: "75", stock: 1},
+    {id: "26",nombre: "Estanteria de Plastico",imagen: "imagenes/estanteriaPlastico.jpg",precioMin: "50",precioMax: "75", stock: 4}
                 ];
 
 function fecha() {
@@ -49,7 +60,7 @@ function principal() {
             let botonV = document.createElement("button"); 
             let titulo = document.createElement("p");
             let precio = document.createElement("p");
-            titulo.textContent=`${producto.nombre}`;
+            titulo.textContent=`${producto.nombre} stock :${producto.stock}`;
             imagen.src = producto.imagen;
             tarjeta.classList.add("tarjeta");
             botonA.classList.add("boton"); 
@@ -71,14 +82,16 @@ function principal() {
                 salidaCarrito.innerHTML = "";
                 salidaCarrito.classList.remove("resultadoFinalError");
                 let encontrado = carrito.find(item =>{
+                    enAlmacen = producto.stock;
                     return item.id === producto.id;
                                                      });
-                if(!encontrado){
-                 carrito.push({id:producto.id, nombre: producto.nombre, precio: producto.precioMax, cantidad: 1}); 
+                if(!encontrado && producto.stock > 0){
+                 carrito.push({id:producto.id, nombre: producto.nombre, precio: producto.precioMax, cantidad: 1});producto.stock--;
                                } 
-                else {                             
-                    encontrado.cantidad++;                                       
-                     }                                                                                 
+                else if(encontrado && producto.stock > 0) {                             
+                    encontrado.cantidad++;producto.stock--;                                       
+                     }
+                else { salidaCarrito.classList.add("resultadoFinalError");salidaCarrito.textContent =`Producto sin STOCK`;}                                                                                      
                 console.log(carrito);
                                                 });
 
@@ -88,7 +101,7 @@ function principal() {
                 salida.classList.add("salida");
                 let encontrado = carrito.find(item =>{    
                     return item.id === producto.id;
-                                                     });
+                                                     });console.log(`encontrar : ${encontrado}`);
                 if(!encontrado){
                     salidaCarrito.classList.add("resultadoFinalError");
                     salidaCarrito.textContent = `No esta en el Carrito.No se puede Eliminar`; 
@@ -96,11 +109,11 @@ function principal() {
                                }                                     
                 else {
                     let posicion = carrito.findIndex(indice=>{
-                    return indice.id === carrito.id;});                
+                    return indice.id === producto.id;});console.log(`posicion :${posicion}`);                
                     if(encontrado.cantidad > 1) {
-                      encontrado.cantidad--;
+                      encontrado.cantidad--;producto.stock++;
                                                 } 
-                    else {carrito.splice(posicion, 1);}                                                                                     
+                    else {producto.stock++;carrito.splice(posicion, 1);}                                                                                     
                     console.log(carrito);
                     }                                                                                                                                                         
                                             });
