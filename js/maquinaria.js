@@ -30,7 +30,7 @@ let productos = [
     {id: "22",nombre: "Mesa de Corte1 ",imagen: "imagenes/mesaCortePeq.jpg",precioMIn: "100",precioMax: "150", stock: 1},
     {id: "23",nombre: "Mesa de Corte2",imagen: "imagenes/mesaCorteMed.jpg",precioMIn: "150",precioMax: "200", stock: 2},
     {id: "24",nombre: "Mesa de Corte3",imagen: "imagenes/mesaCorteGra.jpg",precioMin: "150",precioMax: "250", stock: 1}, 
-    {id: "25",nombre: "Carro de transporte Manual",imagen: "imagenes/Carro.jpg",precioMin: "50",precioMax: "75", stock: 1},
+    {id: "25",nombre: "Carro de transporte Manual",imagen: "imagenes/carro.jpg",precioMin: "50",precioMax: "75", stock: 1},
     {id: "26",nombre: "Estanteria de Plastico",imagen: "imagenes/estanteriaPlastico.jpg",precioMin: "50",precioMax: "75", stock: 4}
                 ];
 
