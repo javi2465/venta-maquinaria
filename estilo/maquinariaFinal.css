@@ -157,7 +157,7 @@ li {font-size: 1.5vw;}
     .resultadoFinal {width: 100%;max-width:200px;}
     /*.uno{border:none;}
     .tres{border:none;}*/
-    .resultadoFinalError {position: absolute;max-height:200px;}
+    .resultadoFinalError {position: fixed;max-height:200px;}
 @media print {
     header{text-align: left;border:2px solid black;padding: 10px;gap:0px;}
     img{height:100%;min-height:200px;width: 100%; max-width: 400px;}
