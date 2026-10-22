@@ -3,7 +3,6 @@ let salidaCarrito = document.getElementById("salidaCarrito");
 const spinner = document.getElementById("spinner");
 let carrito = [];
 let mensaje  = "";
-let enAlmacen = 0;
 
 let productos = [
     {id: "1",nombre: "Picadora con Sierra",imagen: "imagenes/picadora1.jpg",precioMin: "700",precioMax: "900", stock: 1},
@@ -26,7 +25,7 @@ let productos = [
     {id: "18",nombre: "Mesa de Acero Inoxidable1",imagen: "imagenes/mesaAcero1.jpg",precioMIn: "150",precioMax: "200", stock: 2},
     {id: "19",nombre: "Mesa de Acero Inoxidable2 ",imagen: "imagenes/mesaAcero2.jpg",precioMIn: "150",precioMax: "200", stock: 1},
     {id: "20",nombre: "Mesa de Acero Inoxidable3 ",imagen: "imagenes/mesaAcero3.jpg",precioMIn: "150",precioMax: "200", stock: 1},
-    {id: "21",nombre: "Mesa de Acero Inoxidable4 ",imagen: "imagenes/mesaAcero4.jpg",precioMIn: "150",precioMax: "200", stock: 1},
+    {id: "21",nombre: "Mesa de Acero Inoxidable4 ",imagen: "imagenes/mesaAcero4.jpg",precioMIn: "150",precioMax: "200", stock: 2},
     {id: "22",nombre: "Mesa de Corte1 ",imagen: "imagenes/mesaCortePeq.jpg",precioMIn: "100",precioMax: "150", stock: 1},
     {id: "23",nombre: "Mesa de Corte2",imagen: "imagenes/mesaCorteMed.jpg",precioMIn: "150",precioMax: "200", stock: 2},
     {id: "24",nombre: "Mesa de Corte3",imagen: "imagenes/mesaCorteGra.jpg",precioMin: "150",precioMax: "250", stock: 1}, 
@@ -81,8 +80,7 @@ function principal() {
     botonA.addEventListener("click", ()=>{
                 salidaCarrito.innerHTML = "";
                 salidaCarrito.classList.remove("resultadoFinalError");
-                let encontrado = carrito.find(item =>{
-                    enAlmacen = producto.stock;
+                let encontrado = carrito.find(item =>{                  
                     return item.id === producto.id;
                                                      });
                 if(!encontrado && producto.stock > 0){
@@ -104,7 +102,7 @@ function principal() {
                                                      });console.log(`encontrar : ${encontrado}`);
                 if(!encontrado){
                     salidaCarrito.classList.add("resultadoFinalError");
-                    salidaCarrito.textContent = `No esta en el Carrito.No se puede Eliminar`; 
+                    salidaCarrito.innerHTML = `No esta en el Carrito<br>No se puede Eliminar`; 
                     return;
                                }                                     
                 else {
@@ -132,28 +130,39 @@ function principal() {
                     return acumulador + total;
                                                                               }, 0); 
                     console.log(`${totalCompra}€`);
-                    
+                    salida.innerHTML = "";
                     salidaCarrito.innerHTML = "";
                     salidaCarrito.classList.remove("resultadoFinalError");
-                    salidaCarrito.classList.add("salidaCarrito");
                     totales.forEach(resultado =>{
                     let muestra = document.createElement("div");
                     muestra.classList.add("resultado");
                     let precioNumero = Number(resultado.precio);
                     muestra.innerHTML = `${resultado.nombre}<br> Precio :${precioNumero.toFixed(2)} €<br>
-                    Cantidad :${resultado.cantidad} UND<br> Total Producto : ${resultado.total.toFixed(2)} €`;                   
-                    salidaCarrito.appendChild(muestra);                   
+                    Cantidad :${resultado.cantidad} UND<br> Total Producto : ${resultado.total.toFixed(2)} €`; 
+                    salida.classList.add("salidaCarrito");                  
+                    salida.appendChild(muestra);                   
                                            });
                     let totalFinal = document.createElement("p");
-                    totalFinal.classList.add("resultado");
-                    totalFinal.innerHTML = `<strong>Total Compra :${totalCompra.toFixed(2)} €</strong>`;
-                    salidaCarrito.appendChild(totalFinal);
+                    totalFinal.classList.add("resultadoFinal");
+                    totalFinal.innerHTML = `<strong>Total Compra : ${totalCompra.toFixed(2)} €</strong>`;
+                    salida.appendChild(totalFinal);
 
+                    let botonS = document.createElement("button");
+                    botonS.classList.add("boton");
+                    botonS.textContent ="⬅️ 🛒 seguir comprando";
+                    salidaCarrito.appendChild(botonS);
                     let botonF = document.createElement("button");
                     botonF.classList.add("boton");
                     botonF.textContent ="🛒 finalizar compra";
                     salidaCarrito.appendChild(botonF);
                     salidaCarrito.classList.add("resultadoParcial");
+                    botonS.addEventListener("click", ()=>{
+                       salida.innerHTML ="";
+                       salida.classList.remove("salidaCarrito");
+                       salida.classList.add("salida");
+                       salidaCarrito.innerHTML =""; 
+                       principal();
+                                                         });
                     botonF.addEventListener("click", ()=>{
                     salida.innerHTML ="";
                     salidaCarrito.innerHTML ="";
@@ -170,15 +179,21 @@ function principal() {
                                                });
                     let p = document.createElement("div");                  
                     p.classList.add("seguir");                                               
-                    p.innerHTML = `<strong><span class="color">Total Compra : ${totalCompra.toFixed(2)} €</span></strong>`; 
+                    p.innerHTML = `<strong><span class="color">💰 Total Compra : ${totalCompra.toFixed(2)} €</span></strong>`; 
                     salida.appendChild(p); 
                     carrito= [];
-                    let botonS = document.createElement("button");
-                    botonS.classList.add("boton");
-                    botonS.textContent = `seguir comprando`;
-                    p.appendChild(botonS);
+                    let botonN = document.createElement("button");
+                    botonN.classList.add("boton");
+                    botonN.textContent = `🛒 nueva compra`;
+                    p.appendChild(botonN);
                     salidaCarrito.classList.remove("salidaCarrito");
-                    botonS.addEventListener("click", principal); 
+                    botonN.addEventListener("click", () => {
+                        salida.innerHTML ="";
+                        salida.classList.remove("salidaCarrito");
+                        salida.classList.add("salida");
+                        salidaCarrito.innerHTML =""; 
+                        principal();
+                                                            }); 
                     let botonI = document.createElement("button");
                     botonI.classList.add("boton");
                     botonI.textContent = `imprimir`;
@@ -186,7 +201,7 @@ function principal() {
                     botonI.addEventListener("click", () => {
                         window.print();
                                                            });                                                                 
-                                                      });
+                                                      });                                                     
                                        }
                 else {
                     salidaCarrito.classList.add("resultadoFinalError");
@@ -197,3 +212,4 @@ function principal() {
                                 }); 
                        }                  
 principal();                                     
+
