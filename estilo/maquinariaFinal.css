@@ -33,13 +33,18 @@ footer {
         } 
 .salidaCarrito {
     flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+    /*grid-template-columns: repeat(5, 1fr);*/
+    gap: 5px;  
                }       
 .tarjeta {  
     padding: 5px; 
     border : 2px solid black; 
-    background :red;
+    background : lightslategray;
     margin : 5px;
     box-shadow: 0 3px 8px black;
+    max-height: 400px;
         }
 .tarjeta:hover {
    transform:scale(1.02);
@@ -53,11 +58,12 @@ img {width: 100%;max-width: 810px;height: 100%;max-height: 325px;}
     max-height: 150px;
              }             
 .boton {
-    color:black;
+    color:white;
     background-color: green;
     border-color: darkgreen;
     width: 100%;
     max-width: 120px;
+    max-height: 50px;
     cursor: pointer;
     box-shadow: 0 2px 6px green;
     transition: 0.8s;
@@ -73,7 +79,7 @@ li {font-size: 1.5vw;}
 .resultado {
     text-align: left;
     width: 100%;
-    max-width: 195px;
+    max-width: 250px;
     border: 2px solid black;
     padding : 10px;
     background-color: lightyellow;
@@ -82,7 +88,7 @@ li {font-size: 1.5vw;}
 .resultadoParcial {
     text-align: left;
     width: 100%;
-    max-width: 200px;
+    max-width: 250px;
     padding: 10px;
     margin: 5px;
                   } 
@@ -95,7 +101,7 @@ li {font-size: 1.5vw;}
     border: 2px solid #ff0000;
     border-radius: 10px;
     width: 100%;
-    max-width: 200px;
+    max-width: 250px;
     min-height: 50px;       
     margin: 20px auto; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -111,7 +117,8 @@ li {font-size: 1.5vw;}
     border: 2px solid blue;
     border-radius: 10px;
     max-width: 100%;
-    max-height: 70px;       
+    height: 100%;
+    max-height: 100px;       
     margin: 20px auto; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     font-size: 20px;
@@ -142,7 +149,12 @@ li {font-size: 1.5vw;}
     align-items: center; 
     gap : 20px;
              }
-.color {color: blue;font-size: 18px;}              
+.color {color: blue;font-size: 18px;}
+@media (max-width:600px) {
+    header {flex-direction: column;}
+    header img {width: 85%;max-width: 150px;height: 100%;max-height: 160px;}
+    .tarjeta {background: white;}
+                         }              
 @media print {
     header{text-align: left;border:2px solid black;padding: 10px;gap:0px;}
     img{height:100%;min-height:200px;width: 100%; max-width: 400px;}
@@ -154,4 +166,5 @@ li {font-size: 1.5vw;}
     .dos{border: none;}
     .uno{border: 2px solid red;width: 100%;}
     li {font-size: 18px;font-weight: bold;}                     
-            }                                           
+            }
+                                                       
