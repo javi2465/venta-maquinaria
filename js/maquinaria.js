@@ -150,11 +150,11 @@ function principal() {
                     let botonS = document.createElement("button");
                     botonS.classList.add("boton");
                     botonS.textContent ="⬅️ 🛒 seguir comprando";
-                    salidaCarrito.appendChild(botonS);
+                    salida.appendChild(botonS);
                     let botonF = document.createElement("button");
                     botonF.classList.add("boton");
                     botonF.textContent ="🛒 finalizar compra";
-                    salidaCarrito.appendChild(botonF);
+                    salida.appendChild(botonF);
                     salidaCarrito.classList.add("resultadoParcial");
                     botonS.addEventListener("click", ()=>{
                        salida.innerHTML ="";
