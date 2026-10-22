@@ -154,6 +154,7 @@ li {font-size: 1.5vw;}
     header {flex-direction: column;}
     header img {width: 85%;max-width: 150px;height: 100%;max-height: 160px;}
     .tarjeta {background: white;}
+    .principal {flex-direction: column;}
     .resultadoFinal {max-width:300px;}   
     .resultadoFinalError {max-height:200px;}
 @media print {
