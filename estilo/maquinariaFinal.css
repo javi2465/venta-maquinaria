@@ -110,6 +110,7 @@ li {font-size: 1.5vw;}
     margin-top: 25px;
                 } 
 .resultadoFinalError {
+    position: fixed;
     display: block;
     padding : 10px 10px;
     color: red;
