@@ -48,7 +48,7 @@ function fecha() {
              
 function principal() {
      salidaCarrito.classList.remove("resultadoFinalError", "resultadoParcial");
-     salida.classList.remove("resultadoFinalImprimir");
+     salida.classList.remove("resultadoFinalImprimir", "resultado", "salidaCarrito", "resultadoFinal", "resultadoParcial");
      salida.classList.add("salida");
      salida.innerHTML =""; 
     productos.forEach(producto => {
