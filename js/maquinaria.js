@@ -174,7 +174,7 @@ function principal() {
                     totales.forEach(resultado =>{
                         let p = document.createElement("p");                        
                         p.innerHTML = `${resultado.nombre} // ${resultado.cantidad} und. : ${resultado.total.toFixed(2)} €<br>`;                   
-                        salida.classList.add("resultadoFinalImprimir");
+                        salida.classList.add("salidaCarrito");
                         salida.appendChild(p);
                                                });
                     let p = document.createElement("div");                  
