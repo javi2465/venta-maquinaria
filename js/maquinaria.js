@@ -166,7 +166,7 @@ function principal() {
                     botonF.addEventListener("click", ()=>{
                     salida.innerHTML ="";
                     salidaCarrito.innerHTML ="";
-                    salidaCarrito.classList.remove("resultado");
+                    salidaCarrito.classList.remove("resultado", "resultadoParcial");
                     let f = document.createElement("p");
                     let muestraFecha = fecha();
                     f.innerHTML = `${muestraFecha}`;
