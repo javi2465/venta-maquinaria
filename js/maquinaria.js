@@ -89,7 +89,8 @@ function principal() {
                 else if(encontrado && producto.stock > 0) {                             
                     encontrado.cantidad++;producto.stock--;                                       
                      }
-                else { salidaCarrito.classList.add("resultadoFinalError");salidaCarrito.textContent =`Producto sin STOCK`;}                                                                                      
+                else { salidaCarrito.classList.add("resultadoFinalError");salidaCarrito.textContent =`Producto sin STOCK`;}
+                titulo.textContent=`${producto.nombre} stock :${producto.stock}`;
                 console.log(carrito);
                                                 });
 
@@ -111,7 +112,8 @@ function principal() {
                     if(encontrado.cantidad > 1) {
                       encontrado.cantidad--;producto.stock++;
                                                 } 
-                    else {producto.stock++;carrito.splice(posicion, 1);}                                                                                     
+                    else {producto.stock++;carrito.splice(posicion, 1);} 
+                    titulo.textContent=`${producto.nombre} stock :${producto.stock}`;
                     console.log(carrito);
                     }                                                                                                                                                         
                                             });
