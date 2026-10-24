@@ -175,7 +175,7 @@ function principal() {
                         let p = document.createElement("p");                        
                         p.innerHTML = `${resultado.nombre} // ${resultado.cantidad} und. : ${resultado.total.toFixed(2)} €<br>`;
                         salida.classList.remove("salida", "salidaCarrito");
-                        salida.classList.add("resultadoFinal");
+                        salida.classList.add("resultado");
                         salida.appendChild(p);
                                                });
                     let p = document.createElement("div");                  
