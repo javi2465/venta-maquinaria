@@ -109,10 +109,13 @@ li {font-size: 1.5vw;}
     font-weight: bold;      
     margin-top: 25px;
                 } 
-.resultadoFinalError {
-    position: fixed;
+.resultadoFinalError { 
     display: block;
-    padding : 10px 10px;
+    top: 50%;
+    left: 50%;    
+    transform: translate(-50%, -50%);
+    position: fixed;
+    padding : 30px 10px;
     color: red;
     background: lemonchiffon;
     border: 2px solid blue;
@@ -156,7 +159,6 @@ li {font-size: 1.5vw;}
     header img {width: 100%;max-width: 400px;height: 100%;max-height: 400px;}
     .tarjeta {background: white;}
     .resultadoFinal {width: 100%;max-width:200px;}
-    .resultadoFinalError {position: fixed;top: 300px;max-height:100px;}
     .resultadoFinalImprimir {width: 100%;max-width:250px;}
 @media print {
     header{text-align: left;border:2px solid black;padding: 10px;gap:0px;}
