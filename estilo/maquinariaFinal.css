@@ -160,6 +160,7 @@ li {font-size: 1.5vw;}
     .tarjeta {background: white;}
     .resultadoFinal {width: 100%;max-width:200px;}
     .resultadoFinalImprimir {flex: 1;display: grid;grid-template-columns: repeat(auto-fit, minmax(275px, 1fr)); gap: 5px;}
+                          }
 @media print {
     header{text-align: left;border:2px solid black;padding: 10px;gap:0px;}
     img{height:100%;min-height:200px;width: 100%; max-width: 400px;}
