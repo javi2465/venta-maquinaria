@@ -59,6 +59,7 @@ function principal() {
             let botonV = document.createElement("button"); 
             let titulo = document.createElement("p");
             let precio = document.createElement("p");
+            if(producto.stock === 0) {titulo.classList.remove("negro");titulo.classList.add("rojo");}
             titulo.textContent=`${producto.nombre} stock :${producto.stock}`;
             imagen.src = producto.imagen;
             tarjeta.classList.add("tarjeta");
@@ -90,6 +91,7 @@ function principal() {
                     encontrado.cantidad++;producto.stock--;                                       
                      }
                 else { salidaCarrito.classList.add("resultadoFinalError");salidaCarrito.textContent =`Producto sin STOCK`;}
+                if(producto.stock === 0) {titulo.classList.remove("negro");titulo.classList.add("rojo");}  
                 titulo.textContent=`${producto.nombre} stock :${producto.stock}`;
                 console.log(carrito);
                                                 });
@@ -113,6 +115,7 @@ function principal() {
                       encontrado.cantidad--;producto.stock++;
                                                 } 
                     else {producto.stock++;carrito.splice(posicion, 1);} 
+                    if(producto.stock > 0) {titulo.classList.remove("rojo");titulo.classList.add("negro");}
                     titulo.textContent=`${producto.nombre} stock :${producto.stock}`;
                     console.log(carrito);
                     }                                                                                                                                                         
